@@ -1,0 +1,34 @@
+{
+    "name":             "kinesthetic",
+    "version":          "9.9.9",
+    "author":           "Alan Gutierrez <alan@prettyrobots.com>",
+    "description":      "Kinesis based Node.js event queue.",
+    "keywords":
+    [
+                        "kinesis", "aws"
+    ],
+    "license":          "MIT",
+    "contributors":     [],
+    "homepage":         "https://github.com/bigeasy/kinesthetic",
+    "bugs":             "https://github.com/bigeasy/kinesthetic/issues",
+    "main":             "kinesthetic",
+    "repository":
+    {
+                        "type": "git",
+                        "url": "http://github.com/bigeasy/kinesthetic.git"
+    },
+    "bin":
+    {
+    },
+    "dependencies":
+    {
+    },
+    "devDependencies":
+    {
+                        "proof":                "0.0.57"
+    },
+    "scripts":
+    {
+                        "test": "proof platform win32 && proof test */*/*.t.js || t/test"
+    }
+}
