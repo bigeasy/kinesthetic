@@ -1,6 +1,6 @@
 {
     "name":             "kinesthetic",
-    "version":          "9.9.9",
+    "version":          "0.0.1",
     "author":           "Alan Gutierrez <alan@prettyrobots.com>",
     "description":      "Kinesis based Node.js event queue.",
     "keywords":
