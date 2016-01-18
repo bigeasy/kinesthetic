@@ -22,7 +22,10 @@
     },
     "dependencies":
     {
-                        "aws-sdk":              "2.2.30"
+                        "abend":                "0.0.3",
+                        "arguable":             "0.0.42",
+                        "aws-sdk":              "2.2.30",
+                        "cadence":              "0.4.3"
     },
     "devDependencies":
     {
