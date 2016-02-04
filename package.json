@@ -22,14 +22,15 @@
     },
     "dependencies":
     {
-                        "abend":                "0.0.3",
-                        "arguable":             "0.0.42",
-                        "aws-sdk":              "2.2.30",
-                        "cadence":              "0.4.3"
+                        "abend":                "1.x",
+                        "arguable":             "1.x",
+                        "aws-sdk":              "2.x",
+                        "big-integer":          "1.6.11",
+                        "cadence":              "1.x"
     },
     "devDependencies":
     {
-                        "proof":                "0.0.57"
+                        "proof":                "1.x"
     },
     "scripts":
     {
