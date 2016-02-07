@@ -1,7 +1,7 @@
 var Integer = require('big-integer')
 
 function partition (shards) {
-    var n = new Integer('ffffffffffffffffffffffffffffffff', 16)
+    var n = new Integer('ffffffffffffffffffffffffffffffc0', 16)
     var size = n.divide(shards)
     var partition = new Integer(0)
     var partitions = [{ from: 0, to: partition.add(size).subtract(1) }]
@@ -9,7 +9,7 @@ function partition (shards) {
         partition = partition.add(size)
         partitions.push({ from: partition.add(0), to: partition.add(size).subtract(1) })
     }
-    partitions[partitions.length - 1].to = n
+    partitions[partitions.length - 1].to = new Integer('ffffffffffffffffffffffffffffffff', 16)
     return partitions
 }
 

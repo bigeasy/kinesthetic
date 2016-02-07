@@ -8,17 +8,16 @@ function prove (assert) {
             to: partition.to.toString(16)
         }
     }), [
-        { from: '0',
-            to: '2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa9' },
-        { from: '2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            to: '55555555555555555555555555555553' },
-        { from: '55555555555555555555555555555554',
-            to: '7ffffffffffffffffffffffffffffffd' },
-        { from: '7ffffffffffffffffffffffffffffffe',
-            to: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7' },
-        { from: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8',
-            to: 'd5555555555555555555555555555551' },
-        { from: 'd5555555555555555555555555555552',
-            to: 'ffffffffffffffffffffffffffffffff' }
+        { from: '0', to: '2aaaaaaaaaaaaaaaaaaaaaaaaaaaaa9f' },
+        { from: '2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0',
+          to: '5555555555555555555555555555553f' },
+        { from: '55555555555555555555555555555540',
+          to: '7fffffffffffffffffffffffffffffdf' },
+        { from: '7fffffffffffffffffffffffffffffe0',
+          to: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7f' },
+        { from: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa80',
+          to: 'd555555555555555555555555555551f' },
+        { from: 'd5555555555555555555555555555520',
+          to: 'ffffffffffffffffffffffffffffffff' }
     ], 'partition')
 }
