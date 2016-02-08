@@ -39,6 +39,19 @@
         name is required:
             a stream name is required.
 
+    ___ partition, usage ___ en_US ___
+    node kinesthetic.bin.js describe <name>
+
+    options:
+
+        --help                          display help message
+        --region           <string>     AWS region
+
+    ___ $ ___ en_US ___
+
+        name is required:
+            a stream name is required.
+
     ___ . ___
 
  */
@@ -48,6 +61,7 @@ require('arguable')(module, require('cadence')(function (async, program) {
     var AWS = require('aws-sdk')
     console.log(program.param.region)
     var kinesis = new AWS.Kinesis({ region: program.param.region })
+    var repartition = require('./repartition')
 
     switch (program.command[0]) {
     case 'create':
@@ -61,6 +75,10 @@ require('arguable')(module, require('cadence')(function (async, program) {
         }, function (response) {
             console.log(response)
         })
+        break
+    case 'partition':
+        program.assert(program.argv.length == 2, 'name is required')
+        repartition(kinesis, program.argv[0], +program.argv[1], async())
         break
     case 'delete':
         program.assert(program.argv.length == 1, 'name is required')
