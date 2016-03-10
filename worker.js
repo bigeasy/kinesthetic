@@ -5,32 +5,30 @@ Worker.prototype.data = function (message, socket) {
     this._gathering.push({ message: message, socket: socket })
 }
 
-// TODO Implement octet framing either here or up in Prolific.
+// TODO Implement octet framing either here or up in Prolific. (Meh.)
 Worker.prototype.gather = cadence(function (async, timeout, work) {
     async(function () {
         new Delta(async()).ee(work.socket).on('data', []).on('end')
     }, function (data) {
-        var log = this._buckets[work.bucket]
-        if (!log) {
-            log = this._buckets[work.bucket] = []
+        var accumulator = this._buckets[work.bucket]
+        if (!accumulator) {
+            accumulator = this._buckets[work.bucket] = new Accumulator
         }
-        // TODO Split if data is bigger than 1MB.
         var lines = Buffer.concat(data).toString('utf8').split(/\n/)
         if (lines[lines.length - 1] == '\n') {
             lines.pop()
         }
-        var buffers = lines.forEach(function (line) {
-            var buffer = new Buffer(line + '\n')
-        })
+        this._stage.write(lines)
     })
 })
 
 Worker.prototype.send = cadence(function (async) {
-    var buckets = Object.keys(this._buckets)
-    if (buckets.length == 0) {
-        return
+    for (;;) {
+        var records = this._stage.send()
+        if (records.length == 0) {
+            break
+        }
+        this._kinesis.putRecords({
+        }, async())
     }
-    buckets.forEach(function (bucket) {
-        var logs = this._bucket[key]
-    }, this)
 })
